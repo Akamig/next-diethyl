@@ -1,0 +1,5 @@
+schema: ../backend/exports/graphql/schema.graphql
+generates:
+  ./types/types.ts:
+    plugins:
+      - typescript

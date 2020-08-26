@@ -1,0 +1,28 @@
+import Link from 'next/link';
+import Tag from '../Tag/tag';
+import { Post } from 'types/types';
+
+type Props = {
+  title: Post['title'];
+  tags: Post['tags'];
+};
+
+const PostHead = ({ title, tags }: Props) => {
+  return (
+    <>
+      <div>
+        <h1>
+          <Link as={`/posts/`} href='/posts/'>
+            <a aria-label={title}>{title}</a>
+          </Link>
+        </h1>
+        <section>
+          <Tag tags={tags} />
+        </section>
+      </div>
+      <hr />
+    </>
+  );
+};
+
+export default PostHead;
