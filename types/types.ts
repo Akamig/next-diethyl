@@ -42,6 +42,7 @@ export type Category = {
   updated_at: Scalars['DateTime'];
   name: Scalars['String'];
   color?: Maybe<Scalars['String']>;
+  slug: Scalars['String'];
   created_by?: Maybe<AdminUser>;
   updated_by?: Maybe<AdminUser>;
   posts?: Maybe<Array<Maybe<Post>>>;
@@ -98,6 +99,12 @@ export type CategoryConnectionName = {
   connection?: Maybe<CategoryConnection>;
 };
 
+export type CategoryConnectionSlug = {
+  __typename?: 'CategoryConnectionSlug';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<CategoryConnection>;
+};
+
 export type CategoryConnectionUpdated_At = {
   __typename?: 'CategoryConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
@@ -117,6 +124,7 @@ export type CategoryGroupBy = {
   updated_at?: Maybe<Array<Maybe<CategoryConnectionUpdated_At>>>;
   name?: Maybe<Array<Maybe<CategoryConnectionName>>>;
   color?: Maybe<Array<Maybe<CategoryConnectionColor>>>;
+  slug?: Maybe<Array<Maybe<CategoryConnectionSlug>>>;
   created_by?: Maybe<Array<Maybe<CategoryConnectionCreated_By>>>;
   updated_by?: Maybe<Array<Maybe<CategoryConnectionUpdated_By>>>;
 };
@@ -125,6 +133,7 @@ export type CategoryInput = {
   name: Scalars['String'];
   color?: Maybe<Scalars['String']>;
   posts?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  slug: Scalars['String'];
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -225,6 +234,7 @@ export type EditCategoryInput = {
   name?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
   posts?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  slug?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -256,6 +266,8 @@ export type EditPostInput = {
   draft?: Maybe<Scalars['Boolean']>;
   tags?: Maybe<Array<Maybe<Scalars['ID']>>>;
   category?: Maybe<Scalars['ID']>;
+  slug?: Maybe<Scalars['String']>;
+  image?: Maybe<Array<Maybe<Scalars['ID']>>>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -274,6 +286,7 @@ export type EditTagInput = {
   name?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
   posts?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  slug?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -317,7 +330,7 @@ export type InputId = {
 
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_At | CategoryConnectionUpdated_At | CategoryConnectionName | CategoryConnectionColor | CategoryConnectionCreated_By | CategoryConnectionUpdated_By | CreateCategoryPayload | UpdateCategoryPayload | DeleteCategoryPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_At | PostConnectionUpdated_At | PostConnectionTitle | PostConnectionContent | PostConnectionThumbnail | PostConnectionDraft | PostConnectionCategory | PostConnectionCreated_By | PostConnectionUpdated_By | CreatePostPayload | UpdatePostPayload | DeletePostPayload | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnectionId | TagConnectionCreated_At | TagConnectionUpdated_At | TagConnectionName | TagConnectionColor | TagConnectionCreated_By | TagConnectionUpdated_By | CreateTagPayload | UpdateTagPayload | DeleteTagPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_At | UploadFileConnectionUpdated_At | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | UploadFileConnectionCreated_By | UploadFileConnectionUpdated_By | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnectionCreated_By | UsersPermissionsRoleConnectionUpdated_By | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionCreated_By | UsersPermissionsUserConnectionUpdated_By | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_At | CategoryConnectionUpdated_At | CategoryConnectionName | CategoryConnectionColor | CategoryConnectionSlug | CategoryConnectionCreated_By | CategoryConnectionUpdated_By | CreateCategoryPayload | UpdateCategoryPayload | DeleteCategoryPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_At | PostConnectionUpdated_At | PostConnectionTitle | PostConnectionContent | PostConnectionThumbnail | PostConnectionDraft | PostConnectionCategory | PostConnectionSlug | PostConnectionCreated_By | PostConnectionUpdated_By | CreatePostPayload | UpdatePostPayload | DeletePostPayload | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnectionId | TagConnectionCreated_At | TagConnectionUpdated_At | TagConnectionName | TagConnectionColor | TagConnectionSlug | TagConnectionCreated_By | TagConnectionUpdated_By | CreateTagPayload | UpdateTagPayload | DeleteTagPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_At | UploadFileConnectionUpdated_At | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | UploadFileConnectionCreated_By | UploadFileConnectionUpdated_By | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnectionCreated_By | UsersPermissionsRoleConnectionUpdated_By | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionCreated_By | UsersPermissionsUserConnectionUpdated_By | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -481,13 +494,23 @@ export type Post = {
   thumbnail?: Maybe<UploadFile>;
   draft: Scalars['Boolean'];
   category?: Maybe<Category>;
+  slug: Scalars['String'];
   created_by?: Maybe<AdminUser>;
   updated_by?: Maybe<AdminUser>;
   tags?: Maybe<Array<Maybe<Tag>>>;
+  image?: Maybe<Array<Maybe<UploadFile>>>;
 };
 
 
 export type PostTagsArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+};
+
+
+export type PostImageArgs = {
   sort?: Maybe<Scalars['String']>;
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
@@ -543,6 +566,12 @@ export type PostConnectionId = {
   connection?: Maybe<PostConnection>;
 };
 
+export type PostConnectionSlug = {
+  __typename?: 'PostConnectionSlug';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<PostConnection>;
+};
+
 export type PostConnectionThumbnail = {
   __typename?: 'PostConnectionThumbnail';
   key?: Maybe<Scalars['ID']>;
@@ -577,6 +606,7 @@ export type PostGroupBy = {
   thumbnail?: Maybe<Array<Maybe<PostConnectionThumbnail>>>;
   draft?: Maybe<Array<Maybe<PostConnectionDraft>>>;
   category?: Maybe<Array<Maybe<PostConnectionCategory>>>;
+  slug?: Maybe<Array<Maybe<PostConnectionSlug>>>;
   created_by?: Maybe<Array<Maybe<PostConnectionCreated_By>>>;
   updated_by?: Maybe<Array<Maybe<PostConnectionUpdated_By>>>;
 };
@@ -588,6 +618,8 @@ export type PostInput = {
   draft?: Maybe<Scalars['Boolean']>;
   tags?: Maybe<Array<Maybe<Scalars['ID']>>>;
   category?: Maybe<Scalars['ID']>;
+  slug: Scalars['String'];
+  image?: Maybe<Array<Maybe<Scalars['ID']>>>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -753,6 +785,7 @@ export type Tag = {
   updated_at: Scalars['DateTime'];
   name: Scalars['String'];
   color?: Maybe<Scalars['String']>;
+  slug: Scalars['String'];
   created_by?: Maybe<AdminUser>;
   updated_by?: Maybe<AdminUser>;
   posts?: Maybe<Array<Maybe<Post>>>;
@@ -809,6 +842,12 @@ export type TagConnectionName = {
   connection?: Maybe<TagConnection>;
 };
 
+export type TagConnectionSlug = {
+  __typename?: 'TagConnectionSlug';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<TagConnection>;
+};
+
 export type TagConnectionUpdated_At = {
   __typename?: 'TagConnectionUpdated_at';
   key?: Maybe<Scalars['DateTime']>;
@@ -828,6 +867,7 @@ export type TagGroupBy = {
   updated_at?: Maybe<Array<Maybe<TagConnectionUpdated_At>>>;
   name?: Maybe<Array<Maybe<TagConnectionName>>>;
   color?: Maybe<Array<Maybe<TagConnectionColor>>>;
+  slug?: Maybe<Array<Maybe<TagConnectionSlug>>>;
   created_by?: Maybe<Array<Maybe<TagConnectionCreated_By>>>;
   updated_by?: Maybe<Array<Maybe<TagConnectionUpdated_By>>>;
 };
@@ -836,6 +876,7 @@ export type TagInput = {
   name: Scalars['String'];
   color?: Maybe<Scalars['String']>;
   posts?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  slug: Scalars['String'];
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };

@@ -11,8 +11,8 @@ const Tag = ({ tags }: Props) => {
     <div className='tag-container'>
       <ul>
         {tags.map((tag) => (
-          <li key={`${tag.id}__tag`}>
-            <Link as={`/tags/${tag.id}`} href='/tags/[id]'>
+          <li key={`${tag.slug}__tag`}>
+            <Link as={`/tag/${tag.slug}`} href='/tag/[slug]'>
               <a>{tag.name}</a>
             </Link>
           </li>

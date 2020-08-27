@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Layout from '../components/Layout/Layout';
 import Container from 'components/Container/container';
 
-import { getPosts } from 'utils/api';
+import { getAllPosts } from 'utils/api';
 
 export default function IndexPage({ posts }) {
   return (
@@ -13,10 +13,10 @@ export default function IndexPage({ posts }) {
         <h1>Blogmig.</h1>
         <ul>
           {posts.map((post) => (
-            <li key={`post__${post.id}`}>
+            <li key={`${post.id}__post`}>
               <Link
-                as={`/posts/${post.id}`}
-                href='/posts/[id]'
+                as={`/post/${post.slug}`}
+                href='/post/[slug]'
               >
                 <a>{post.title}</a>
               </Link>
@@ -29,7 +29,7 @@ export default function IndexPage({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = (await getPosts()) || [];
+  const posts = (await getAllPosts()) || [];
   return {
     props: {
       posts,

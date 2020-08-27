@@ -1,8 +1,23 @@
 import fs from 'fs';
 import { join } from 'path';
-import { Query } from 'types/types';
 
-async function fetchAPI(query, { variables } = {}) {
+const postQuery = `posts(where: {draft:"false"}){
+  title
+  created_at
+  slug
+  category{
+    name
+    color
+    slug
+  }
+  tags{
+    name
+    slug
+    color
+  }
+}`;
+
+async function fetchAPI(query, { variables }: any = {}) {
   const res = await fetch(`${process.env.API_URL}/graphql`, {
     method: 'POST',
     headers: {
@@ -23,117 +38,94 @@ async function fetchAPI(query, { variables } = {}) {
   return json.data;
 }
 
-export async function getPosts() {
+export async function getAllPosts() {
   const data = await fetchAPI(`query Posts {
-    posts(where: {draft:"false"}){
-      id
-      title
-      category{
-        name
-        color
-      }
-      tags{
-        name
-        color
-      }
-    }
+    ${postQuery}
   }`);
   return data.posts;
 }
 
-export async function getPost(id) {
+export async function getAllTags() {
   const data = await fetchAPI(
-    `query Post ($id:ID!){
-      post(id: $id){
-        id
-        title
-        content
-        thumbnail{
-          name
-          alternativeText
-        }
-        tags{
-          id
-          name
-          color
-        }
+    `query Tags {
+      tags{
+        name
+        slug
+        color
       }
-    }`,
-    { variables: { id } }
+    }`
   );
-  return data.post;
-}
-
-export async function getTags() {
-  const data = await fetchAPI(`
-  query Tags{
-    tags{
-      id
-      name
-      color
-    }
-  }`);
   return data.tags;
 }
 
-export async function getTag(id) {
+export async function getAllCategories() {
   const data = await fetchAPI(
-    `query Tags ($id:ID!){
-      tag(id:$id){
-          id
+    `query Categories {
+      categories{
+        name
+        slug
+        color
+      }
+    }`
+  );
+  return data.categories;
+}
+
+export async function getPostBySlug(slug) {
+  const data = await fetchAPI(
+    `query Posts ($slug: String!){
+      posts(where: {slug:$slug}) {
+        id
+        title
+        slug
+        created_at
+        category{
+          name
+          slug
+          color
+        }
+        tags{
+          name
+          slug
+          color
+        }
+        image{
+          url
+        }
+        content
+      }
+    }
+  `,
+    { variables: { slug } }
+  );
+  return data.posts[0];
+}
+
+export async function getPostsByTag(slug) {
+  const data = await fetchAPI(
+    `query Tags ($slug:String!){
+      tags(where: {slug: $slug}){
           name
           color
-        posts{
-          id
-          title
+          ${postQuery}
         }
-      }
-    }`,
-    { variables: { id }}
+      }`,
+    { variables: { slug } }
   );
-  return data.tag;
-}
-/*
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return data.tags[0];
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-
-  type Items = {
-    [key: string]: string;
-  };
-
-  const items: Items = {};
-
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = realSlug;
+export async function getPostsByCategory(slug) {
+  const data = await fetchAPI(
+    `query Category ($slug:String!){
+      categories(where: {slug: $slug}){
+          name
+          color
+        ${postQuery}
+      }
     }
-    if (field === 'content') {
-      items[field] = content;
-    }
-
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
-
-  return items;
+  `,
+    { variables: { slug } }
+  );
+  return data.categories[0];
 }
-
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  return posts;
-}
-
-*/

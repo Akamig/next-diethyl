@@ -8,13 +8,13 @@ import PostBody from 'components/PostBody/post-body';
 import Container from 'components/Container/container';
 
 import Layout from 'components/Layout/Layout';
-import { getPost, getPosts } from '../../utils/api';
+import { getPostBySlug, getAllPosts } from '../../utils/api';
 import markdownToHtml from '../../utils/markdownToHtml';
 import { Post as Posttype } from 'types/types';
 
 type Params = {
   params: {
-    id: string;
+    slug: Posttype['slug'];
   };
 };
 
@@ -32,7 +32,7 @@ export default function Post({ post }: Props) {
         ) : (
           <>
             <article>
-              <PostHead title={post.title} tags={post.tags} />
+              <PostHead title={post.title} tags={post.tags} category={post.category} />
               <PostBody content={post.content} />
             </article>
           </>
@@ -44,7 +44,7 @@ export default function Post({ post }: Props) {
 
 //TODO: API parse from strapi
 export async function getStaticProps({ params }: Params) {
-  const post = await getPost(params.id);
+  const post = await getPostBySlug(params.slug);
   const content = await markdownToHtml(post.content || '');
   return {
     props: {
@@ -57,12 +57,12 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = (await getPosts()) || [];
+  const posts = (await getAllPosts()) || [];
   return {
     paths: posts.map((posts) => {
       return {
         params: {
-          id: posts.id,
+          slug: posts.slug,
         },
       };
     }),

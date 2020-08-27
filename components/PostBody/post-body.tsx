@@ -6,9 +6,7 @@ type Props = {
 
 const PostBody = ({ content }: Props) => {
   return (
-    <div>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
   );
 };
 
