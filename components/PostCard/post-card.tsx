@@ -6,7 +6,7 @@ type Props = {
   post: Post;
 };
 
-const ListCard = ({ post }: Props) => {
+const PostCard = ({ post }: Props) => {
   return (
     <li key={`${post.slug}__post`}>
       <Link as={`/post/${post.slug}`} href='/post/[slug]'>
@@ -19,4 +19,4 @@ const ListCard = ({ post }: Props) => {
   );
 };
 
-export default ListCard;
+export default PostCard;
