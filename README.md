@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://akamig.org">
-    <img alt="Akamig" src="/src/public/favicon.svg" width="240" />
+    <img alt="Akamig" src="/public/favicon.svg" width="240" />
   </a>
 </p>
 
 # next-diethyl - Akamig's Next + Strapi Blog
 
-This 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA THIS IS NOT WHAT I WANTEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 
 ## ⚡️ Quick start
 
