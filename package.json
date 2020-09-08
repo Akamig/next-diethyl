@@ -11,6 +11,11 @@
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@apollo/react-ssr": "^4.0.0",
+    "@emotion/cache": "^11.0.0-next.15",
+    "@emotion/css": "^11.0.0-next.15",
+    "@emotion/react": "^11.0.0-next.15",
+    "@emotion/server": "^11.0.0-next.15",
+    "@emotion/styled": "^11.0.0-next.15",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
@@ -23,6 +28,7 @@
     "next-apollo": "^5.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "rehype-raw": "^4.0.2",
     "rehype-react": "^6.1.0",
     "rehype-stringify": "^8.0.0",
     "remark-parse": "^8.0.3",
@@ -47,7 +53,6 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.6.1",
     "typescript": "^3.9.7"
   }
 }
