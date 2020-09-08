@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 
-const postQuery = `posts(where: {draft:"false"}){
+const postQuery = `
   title
   created_at
   slug
@@ -15,9 +15,13 @@ const postQuery = `posts(where: {draft:"false"}){
     slug
     color
   }
-}`;
+`;
 
-async function fetchAPI(query, { variables }: any = {}) {
+type posts = {
+  posts: Post[];
+};
+
+async function fetchAPI(query, { variables } = {}) {
   const res = await fetch(`${process.env.API_URL}/graphql`, {
     method: 'POST',
     headers: {
@@ -40,7 +44,9 @@ async function fetchAPI(query, { variables }: any = {}) {
 
 export async function getAllPosts() {
   const data = await fetchAPI(`query Posts {
-    ${postQuery}
+    posts{
+      ${postQuery}
+    }
   }`);
   return data.posts;
 }
@@ -107,7 +113,9 @@ export async function getPostsByTag(slug) {
       tags(where: {slug: $slug}){
           name
           color
-          ${postQuery}
+          posts{
+            ${postQuery}
+          }
         }
       }`,
     { variables: { slug } }
@@ -118,9 +126,7 @@ export async function getPostsByTag(slug) {
 export async function getPostsByCategory(slug) {
   const data = await fetchAPI(
     `query Category ($slug:String!){
-      categories(where: {slug: $slug}){
-          name
-          color
+      posts(where:{category:{slug:$slug}}){
         ${postQuery}
       }
     }
@@ -128,4 +134,42 @@ export async function getPostsByCategory(slug) {
     { variables: { slug } }
   );
   return data.categories[0];
+}
+
+export async function PagedAllPosts(page: number) {
+  const perPage = +process.env.PER_PAGE;
+  const curPage = perPage * page - perPage || 0;
+  const data = await fetchAPI(
+    `query posts ($curPage:Int!, $perPage:Int!){
+      posts(limit: $perPage, start: $curPage){
+        ${postQuery}
+      }
+      postsCount
+    }
+  `,
+    { variables: { curPage, perPage } }
+  );
+  data.lastPage = Math.ceil(data.postsCount / perPage);
+
+  return data;
+}
+
+export async function PagedPostBySlug(
+  page: number,
+  slug: string,
+  queryTarget: string
+) {
+  const perPage = +process.env.PER_PAGE;
+  const curPage = perPage * (page - 1) || 1;
+  const data: posts = await fetchAPI(
+    `query posts ($curPage:Int!, $perPage:Int!, $slug:String!){
+      posts(where: {${queryTarget}: {slug: $slug}} limit: $perPage, start: $curPage){
+        ${postQuery}
+      }
+    }
+  `,
+    { variables: { curPage, perPage, slug } }
+  );
+  data.lastPage = Math.ceil(data.posts.length / perPage);
+  return data;
 }

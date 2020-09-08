@@ -4,63 +4,46 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
 import Layout from 'components/Layout/Layout';
-import PostCard from 'components/PostCard/post-card';
-import { Category } from 'types/types';
+import { Category, Post } from 'types/types';
 import { Container } from 'next/app';
-import { getPostsByCategory, getAllCategories } from 'utils/api';
+import { PagedPostBySlug } from 'utils/api';
+import PostListContainer from 'components/PostListContainer/post-list-container';
+import Pagination from 'components/Pagination/pagination';
 
 type Props = {
-  category: Category[];
-};
-type Params = {
-  params: {
-    slug: Category['slug'];
-  };
+  posts: Post[];
+  page: number;
+  lastPage: number;
+  slug: Category['slug'];
 };
 
-export default function CategoryList({ category }: Props) {
+export default function CategoryList({ posts, page, lastPage, slug }: Props) {
   const router = useRouter();
   return (
-    <Layout title={`Category | ${category.name}`}>
+    <Layout title={`Category | ${slug}`}>
       <Container>
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
         ) : (
-          <>
-            <h1>{category.name}</h1>
-            <ul>
-              {category.posts.map((post) => (
-                <PostCard key={`${post.slug}__post`} post={post} />
-              ))}
-            </ul>
-          </>
-        )}
+            <PostListContainer title={posts.name} posts={posts} />
+          )}
+        <Pagination basePath={`/category/${slug}`} page={page} lastPage={lastPage} />
       </Container>
     </Layout>
   );
 }
 
-export async function getStaticProps({ params }: Params) {
-  const category = await getPostsByCategory(params.slug);
+export async function getServerSideProps({ query })
+{
+  const slug = query.slug;
+  const page = parseInt(query.page) || 1;
+  const data = await PagedPostBySlug(page, slug, 'category');
   return {
     props: {
-      category: {
-        ...category,
-      },
+      posts: data.posts,
+      page,
+      lastPage: data.lastPage,
+      slug,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const categories = (await getAllCategories()) || [];
-  return {
-    paths: categories.map((category) => {
-      return {
-        params: {
-          slug: category.slug,
-        },
-      };
-    }),
-    fallback: false,
   };
 }

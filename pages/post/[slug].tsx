@@ -30,12 +30,14 @@ export default function Post({ post }: Props) {
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
         ) : (
-          <>
-            <article>
-              <PostHead title={post.title} tags={post.tags} category={post.category} />
-              <PostBody content={post.content} />
-            </article>
-          </>
+          <article>
+            <PostHead
+              title={post.title}
+              tags={post.tags}
+              category={post.category}
+            />
+            <PostBody content={post.content} />
+          </article>
         )}
       </Container>
     </Layout>
