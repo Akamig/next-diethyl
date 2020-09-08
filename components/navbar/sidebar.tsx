@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className='sidebar'>
       <h1 className='logo'>
         <Link href='/'>
           <a>
