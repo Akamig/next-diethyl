@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 
-const postQuery = `posts(where: {draft:"false"}){
+const postQuery = `
   title
   created_at
   slug
@@ -15,9 +15,13 @@ const postQuery = `posts(where: {draft:"false"}){
     slug
     color
   }
-}`;
+`;
 
-async function fetchAPI(query, { variables }: any = {}) {
+type posts = {
+  posts: Post[];
+};
+
+async function fetchAPI(query, { variables } = {}) {
   const res = await fetch(`${process.env.API_URL}/graphql`, {
     method: 'POST',
     headers: {
@@ -40,7 +44,9 @@ async function fetchAPI(query, { variables }: any = {}) {
 
 export async function getAllPosts() {
   const data = await fetchAPI(`query Posts {
+    posts{
     ${postQuery}
+    }
   }`);
   return data.posts;
 }
@@ -107,7 +113,9 @@ export async function getPostsByTag(slug) {
       tags(where: {slug: $slug}){
           name
           color
+          posts{
           ${postQuery}
+        }
         }
       }`,
     { variables: { slug } }
@@ -118,9 +126,7 @@ export async function getPostsByTag(slug) {
 export async function getPostsByCategory(slug) {
   const data = await fetchAPI(
     `query Category ($slug:String!){
-      categories(where: {slug: $slug}){
-          name
-          color
+      posts(where:{category:{slug:$slug}}){
         ${postQuery}
       }
     }
