@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { join } from 'path';
+import { Post } from 'types/types';
 
 const postQuery = `
   title
@@ -19,9 +20,10 @@ const postQuery = `
 
 type posts = {
   posts: Post[];
+  lastPage: number;
 };
 
-async function fetchAPI(query, { variables } = {}) {
+async function fetchAPI(query, { variables }:any = {}) {
   const res = await fetch(`${process.env.API_URL}/graphql`, {
     method: 'POST',
     headers: {
@@ -44,7 +46,7 @@ async function fetchAPI(query, { variables } = {}) {
 
 export async function getAllPosts() {
   const data = await fetchAPI(`query Posts {
-    posts{
+    posts(sort: "created_at:DESC"){
       ${postQuery}
     }
   }`);
