@@ -19,6 +19,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+
+    "strictNullChecks": false,
+    "noImplicitAny": false,
   },
   "exclude": ["node_modules", "private", "public"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
