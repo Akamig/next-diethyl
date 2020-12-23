@@ -25,7 +25,7 @@ export default function TagList({ posts, page, lastPage, slug }: Props) {
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
         ) : (
-          <PostListContainer title={posts.name} posts={posts} />
+          <PostListContainer title={slug} posts={posts} />
         )}
         <Pagination
           basePath={`/tag/${slug}`}
