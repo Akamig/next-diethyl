@@ -1,12 +1,16 @@
 import unified from 'unified';
 import mdparse from 'remark-parse';
+import slug from 'remark-slug';
+import toc from 'remark-toc';
 import remark2rehype from 'remark-rehype';
-import raw from 'rehype-raw'
+import raw from 'rehype-raw';
 import html from 'rehype-stringify';
 
 export default async function markdownToHtml(markdown: string) {
   const result = await unified()
     .use(mdparse)
+    .use(slug)
+    .use(toc)
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(raw)
     .use(html)
