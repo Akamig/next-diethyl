@@ -1,29 +1,17 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { useTheme } from '@emotion/react';
 
 import Link from 'next/link';
 import Layout from '../components/Layout/Layout';
 import Container from 'components/Container/container';
-
+import PostListContainer from 'components/PostListContainer/post-list-container';
 import { getAllPosts } from 'utils/api';
 
 export default function IndexPage({ posts }) {
+  const theme = useTheme();
   return (
-    <Layout title='Blogmig'>
-      <Container>
-        <h1>Blogmig.</h1>
-        <ul>
-          {posts.map((post) => (
-            <li key={`${post.id}__post`}>
-              <Link
-                as={`/post/${post.slug}`}
-                href='/post/[slug]'
-              >
-                <a>{post.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Container>
+    <Layout title='Ethyl'>
+      <PostListContainer posts={posts} />
     </Layout>
   );
 }

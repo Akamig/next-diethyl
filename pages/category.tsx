@@ -17,7 +17,6 @@ export default function CategotyList({ categories }: Props) {
   const router = useRouter();
   return (
     <Layout title='Category'>
-      <Container>
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
         ) : (
@@ -34,7 +33,6 @@ export default function CategotyList({ categories }: Props) {
             </ul>
           </>
         )}
-      </Container>
     </Layout>
   );
 }

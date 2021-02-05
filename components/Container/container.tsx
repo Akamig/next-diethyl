@@ -1,11 +1,14 @@
-import { ReactNode, FunctionComponent } from 'react';
-
+import styled from '@emotion/styled';
 type Props = {
-  children?: ReactNode;
+  children?: React.ReactNode;
 };
 
-const Container: FunctionComponent = ({ children }: Props) => {
-  return <div className='container'>{children}</div>;
+const Main = styled.div`
+  padding: 0.5rem;
+`;
+
+const Container = ({ children }: Props) => {
+  return <Main className='container'>{children}</Main>;
 };
 
 export default Container;

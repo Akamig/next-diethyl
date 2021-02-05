@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
@@ -11,6 +10,7 @@ import Layout from 'components/Layout/Layout';
 import { getPostBySlug, getAllPosts } from '../../utils/api';
 import markdownToHtml from '../../utils/markdownToHtml';
 import { Post as Posttype } from 'types/types';
+import PostFooter from 'components/PostFooter/post-footer';
 
 type Params = {
   params: {
@@ -26,20 +26,20 @@ export default function Post({ post }: Props) {
   const router = useRouter();
   return (
     <Layout title={post.title}>
-      <Container>
-        {router.isFallback ? (
-          <ErrorPage statusCode={404} />
-        ) : (
-          <article>
-            <PostHead
-              title={post.title}
-              tags={post.tags}
-              category={post.category}
-            />
-            <PostBody content={post.content} />
-          </article>
-        )}
-      </Container>
+      {router.isFallback ? (
+        <ErrorPage statusCode={404} />
+      ) : (
+        <article>
+          <PostHead
+            title={post.title}
+            tags={post.tags}
+            category={post.category}
+            created_at={post.created_at}
+          />
+          <PostBody content={post.content} />
+          <PostFooter />
+        </article>
+      )}
     </Layout>
   );
 }

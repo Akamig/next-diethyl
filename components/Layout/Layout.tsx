@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
-import Link from 'next/link';
-import Meta from '../Meta/meta';
 import Sidebar from '../navbar/sidebar';
 import Footer from '../Footer/footer';
+import Container from '../Container/container';
+
 type Props = {
   children?: ReactNode;
   title?: string;
@@ -12,34 +12,23 @@ type Props = {
 
 const Main = styled.div`
   display: grid;
-
+  grid-template-rows: auto auto auto;
   @media screen and (max-width: 900px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+    overflow-x: hidden;
   }
+
   @media screen and (min-width: 900px) {
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: auto auto auto;
-    position: 50vw;
+    grid-template-columns: 100px auto;
     max-width: 1000px;
-  }
-  margin: 1rem 1rem;
-  padding: 1rem;
-
-  & > * {
-    border: 1px solid black;
-  }
-
-  main {
-    padding: 0.625rem;
   }
 `;
 
 const Layout = ({ children, title }: Props) => (
   <Main>
-    <Meta title={title} />
+    <title>{title}</title>
     <Sidebar />
-    <main>{children}</main>
+    <Container>{children}</Container>
     <Footer />
   </Main>
 );

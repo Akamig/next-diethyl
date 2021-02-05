@@ -5,7 +5,6 @@ import ErrorPage from 'next/error';
 
 import Layout from 'components/Layout/Layout';
 import { Tag, Post } from 'types/types';
-import { Container } from 'next/app';
 import { PagedPostBySlug } from 'utils/api';
 import PostListContainer from 'components/PostListContainer/post-list-container';
 import Pagination from 'components/Pagination/pagination';
@@ -21,7 +20,6 @@ export default function TagList({ posts, page, lastPage, slug }: Props) {
   const router = useRouter();
   return (
     <Layout title={`Tag | ${slug}`}>
-      <Container>
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
         ) : (
@@ -32,7 +30,6 @@ export default function TagList({ posts, page, lastPage, slug }: Props) {
           page={page}
           lastPage={lastPage}
         />
-      </Container>
     </Layout>
   );
 }
