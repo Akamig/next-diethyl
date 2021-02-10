@@ -12,15 +12,16 @@ const Tagbox = styled.div`
   flex-wrap: wrap;
   font-size: 0.75rem;
   font-weight: 600;
+  gap: 0.25rem;
 `;
 
 const Tagbutton = styled.div`
   background-color: ${(props) => props.color};
   color: ${(props) => props.theme.textColor};
-
-  padding: 0.15rem 0.4rem;
-  margin: 0.1rem;
-  border-radius: 1em;
+  line-height: 1rem;
+  padding: 0.125rem 0.375rem;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
 `;
 
 const Tag = ({ tags }: Props) => {
