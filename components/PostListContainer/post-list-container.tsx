@@ -9,9 +9,9 @@ type Props = {
 
 const Container = styled.div`
   & > * {
-    border-left: 0.3125rem solid black;
-    padding-left: 0.5rem;
-    margin: 0.25rem 0;
+    border-left: .375rem solid black;
+    padding-left: .5rem;
+    margin: 0.375rem 0;
   }
 `;
 

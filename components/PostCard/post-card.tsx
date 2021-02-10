@@ -17,16 +17,15 @@ const PostBox = styled.div`
   }
   font-weight: 600;
   font-feature-settings: 'ss01', 'cv01';
-  align-items: flex-start;
-  line-height: 1.3;
+  align-items: space-between;
+  line-height: 1.25;
+
 `;
 
 const Date = styled.time``;
 
 const Title = styled.h1`
-  margin: 0;
-
-  flex: auto;
+  margin: 0 0 0.25rem;
   font-size: 1.375rem;
   font-weight: 700;
   letter-spacing: -0.05em;
