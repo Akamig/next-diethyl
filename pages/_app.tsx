@@ -1,41 +1,21 @@
 import React, { useState } from 'react';
 import { AppProps } from 'next/app';
-import { ThemeProvider, useTheme, Global } from '@emotion/react';
-import { globalStyle, themes } from '../styles/global.ts';
-
-function GlobalStyle(props) {
-  const theme = useTheme();
-  return (
-    <Global
-      styles={{
-        ...globalStyle,
-        html: {
-          color: theme.textColor,
-          backgroundColor: theme.bgColor,
-          fontFamily: theme.fontFamily,
-        },
-      }}
-      {...props}
-    />
-  );
-}
+import Head from 'next/head';
+import ThemeProvider from '../context/providers';
+import { Theme } from '../components/Theme/theme';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const [theme, setTheme] = useState(themes.dark);
-
-  const onClickLight = (e) => {
-    setTheme(themes.light);
-  };
-  const onClickDark = (e) => {
-    setTheme(themes.whacked);
-  };
-
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Component {...pageProps} />
-      <button onClick={onClickLight}>Light!</button>
-      <button onClick={onClickDark}>Dark!</button>
+    <ThemeProvider>
+      <Theme>
+        <Head>
+          <meta
+            name='viewport'
+            content='initial-scale=1.0, width=device-width'
+          />
+        </Head>
+        <Component {...pageProps} />
+      </Theme>
     </ThemeProvider>
   );
 }
