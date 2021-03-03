@@ -9,7 +9,7 @@ const theme = {
     background: '#0F0',
   },
   font: {
-    main: 'Comic Sans MS, Gulim, sans-serif',
+    main: `'Comic Sans MS', 'Wadag', 'YJ INITIALPOSITIVE','Gulimche', 'Gulim', 'sans-serif'`,
   },
 };
 
