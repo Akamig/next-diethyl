@@ -39,17 +39,17 @@ export const Theme = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Global
         styles={{
-          '&, &:before, &:after': {
+          '*, *:before, *:after': {
             margin: 0,
             padding: 0,
             boxSizing: 'inherit',
           },
-          'html, body': {
+          'html body': {
             boxSizing: 'border-box',
             position: 'relative',
             minHeight: '100%',
             margin: 0,
-            font: '400 100%/1.3 ' + theme.font.main,
+            font: '500 100%/1.25 ' + theme.font.main,
             wordBreak: 'keep-all',
             textRendering: 'optimizeLegibility',
             color: theme.color.text,
@@ -61,6 +61,12 @@ export const Theme = ({ children }) => {
           a: {
             color: 'inherit',
             textDecoration: 'none',
+          },
+          '@font-face': {
+            fontFamily: 'Wadag',
+            fontWeight: '400',
+            src: `local('YJ INITIALPOSITIVE Medium')`,
+            unicodeRange: 'U+AC00-D7AF',
           },
         }}
       />
