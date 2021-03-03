@@ -14,7 +14,7 @@ export const mediaQuery = {
 
 export const font = {
   main:
-    'Inter, Noto Sans CJK,SpoqaHanSans, SpoqaHanSansJp,  Helvetica, Helvetica Neue, Noto Sans, -apple-system,BlinkMacSystemFont, Segoe UI, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+    'Inter, Spoqa Han Sans Neo, Helvetica, Helvetica Neue, Noto Sans, -apple-system,BlinkMacSystemFont, Segoe UI, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
   code: 'Iosevka, monospace',
 };
 
