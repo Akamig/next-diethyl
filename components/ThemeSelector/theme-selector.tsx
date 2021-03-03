@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { ThemeMode, THEME_OPTIONS } from '../Theme/theme';
 import { useThemeValue } from '../../context/ThemeContext';
-import Radio from '../Radio/Radio';
 
 interface Props {}
 
-const Container = styled.label``;
+const Container = styled.div`
+  text-align: center;
+`;
 
 export const ThemeSelector: React.FC<Props> = React.memo(() => {
   const [{ theme, selectedTheme }, dispatch] = useThemeValue();
@@ -29,8 +30,8 @@ export const ThemeSelector: React.FC<Props> = React.memo(() => {
     });
 
   return (
-    <>
-      <Container for='theme' />
+    <Container>
+      <label htmlFor='theme' />
       <input
         type='radio'
         id='theme'
@@ -55,7 +56,7 @@ export const ThemeSelector: React.FC<Props> = React.memo(() => {
         checked={selectedTheme === THEME_OPTIONS.WEIRD}
         onChange={changeWeird}
       />
-    </>
+    </Container>
   );
 });
 
