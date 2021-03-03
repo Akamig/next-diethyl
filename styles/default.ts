@@ -19,13 +19,15 @@ export const font = {
 };
 
 export const color = {
-  text: 'hsl(0, 0%, 13%)',
-  sub: 'hsl(0, 0%, 87%)',
-  background: 'hsl(0, 0%, 73%)',
+  text: 'hsl(0, 0%, 8%)',
+  sub: 'hsl(0, 0%, 93%)',
+  background: 'hsl(0, 0%, 83%)',
   highlight: '#81b',
   alt1: '#f07',
   alt2: '#F57',
   alt3: '#7F5',
+  black: 'hsl(0, 0%, 5%)',
+  white: 'hsl(0, 0%, 93%)',
 };
 
 export const theme = {

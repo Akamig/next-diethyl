@@ -6,8 +6,8 @@ const theme = {
   color: {
     ...defaultTheme.color,
     text: 'hsl(0, 0%, 85%)',
+    background: 'hsl(170, 40%, 23%)',
     sub: 'hsl(192, 60%, 15%)',
-    background: 'hsl(170, 40%, 23%)'
   },
 };
 
