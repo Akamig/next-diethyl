@@ -26,6 +26,7 @@
   ],
   "plugins": [
     "@typescript-eslint",
+    "@emotion",
     "react",
     "react-hooks",
     "jsx-a11y",
@@ -134,7 +135,8 @@
           }
         }
       }
-    ]
+    ],
+    "@emotion/pkg-renaming": "error"
   },
   "settings": {
     "react": {
