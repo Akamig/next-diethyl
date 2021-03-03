@@ -1,9 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
-import Sidebar from '../navbar/sidebar';
+import Navbar from '../navbar/navbar';
 import Footer from '../Footer/footer';
-import Container from '../Container/container';
 
 type Props = {
   children?: ReactNode;
@@ -27,8 +26,8 @@ const Main = styled.div`
 const Layout = ({ children, title }: Props) => (
   <Main>
     <title>{title}</title>
-    <Sidebar />
-    <Container>{children}</Container>
+    <Navbar />
+    {children}
     <Footer />
   </Main>
 );
