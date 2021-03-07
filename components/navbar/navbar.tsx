@@ -50,7 +50,7 @@ const Item = styled.a`
   width: 100%;
   min-height: 2.5rem;
   background-color: ${(props) => props.theme.color.background};
-  margin-bottom: 2px;
+  margin-bottom: 0.125rem;
 
   :hover {
     background-color: ${(props) => props.theme.color.highlight};
@@ -89,7 +89,7 @@ const Navbar = () => {
         </Link>
         <Item onClick={toTop}>Top</Item>
       </Nav>
-        <ThemeSelector /> 
+      <ThemeSelector />
     </NavWrap>
   );
 };
