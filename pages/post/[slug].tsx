@@ -29,16 +29,17 @@ export default function Post({ post }: Props) {
       {router.isFallback ? (
         <ErrorPage statusCode={404} />
       ) : (
-        <article>
+        <>
           <PostHead
             title={post.title}
             tags={post.tags}
             category={post.category}
             created_at={post.created_at}
+            slug={post.slug}
           />
           <PostBody content={post.content} />
           <PostFooter />
-        </article>
+        </>
       )}
     </Layout>
   );
