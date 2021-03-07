@@ -3,15 +3,17 @@ import styled from '@emotion/styled';
 
 const Article = styled.article`
   line-height: 1.6;
-  font-size: 1.125rem;
-  letter-spacing: calc(1.125rem * -0.03);
+  font-size: 1rem;
+  letter-spacing: -0.011rem;
+  font-weight: 400;
+  font-feature-settings: 'ss01', 'cv01';
 
-  @media screen and (max-width: 900px) {
     iframe {
       display: block;
-      max-width: 100%;
+    max-width: 90%;
     }
-    font-size: 1rem;
+  @media screen and (min-width: 900px) {
+    font-size: 1.125rem;
   }
 `;
 
