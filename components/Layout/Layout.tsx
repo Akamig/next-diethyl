@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
+import Head from 'next/head';
 
 import Navbar from '../navbar/navbar';
 import MainContents from '../MainContents/main-contents';
@@ -27,10 +28,12 @@ const Main = styled.div`
 const Layout = ({ children, title }: Props) => {
   return (
   <Main>
-    <title>{title}</title>
-    <Navbar />
+      <Head>
+        <title>{title}</title>
+      </Head>
+        <Navbar />
         <MainContents>{children}</MainContents>
-    <Footer />
+        <Footer />
   </Main>
 );
 };
