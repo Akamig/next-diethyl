@@ -25,9 +25,13 @@ export default function CategoryList({ posts, page, lastPage, slug }: Props) {
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
         ) : (
-            <PostListContainer title={posts.name} posts={posts} />
-          )}
-        <Pagination basePath={`/category/${slug}`} page={page} lastPage={lastPage} />
+          <PostListContainer posts={posts} />
+        )}
+        <Pagination
+          basePath={`/category/${slug}`}
+          page={page}
+          lastPage={lastPage}
+        />
       </Container>
     </Layout>
   );

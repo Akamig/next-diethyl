@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             rel='stylesheet'
             type='text/css'
           ></link>
-                    <link
+          <link
             href='//rsms.me/inter/inter-display.css'
             rel='stylesheet'
             type='text/css'

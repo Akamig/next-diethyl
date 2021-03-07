@@ -8,10 +8,10 @@ const Article = styled.article`
   font-weight: 400;
   font-feature-settings: 'ss01', 'cv01';
 
-    iframe {
-      display: block;
+  iframe {
+    display: block;
     max-width: 90%;
-    }
+  }
   @media screen and (min-width: 900px) {
     font-size: 1.125rem;
   }
