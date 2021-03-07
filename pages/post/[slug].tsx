@@ -4,7 +4,6 @@ import ErrorPage from 'next/error';
 
 import PostHead from 'components/PostHead/post-head';
 import PostBody from 'components/PostBody/post-body';
-import Container from 'components/Container/container';
 
 import Layout from 'components/Layout/Layout';
 import { getPostBySlug, getAllPosts } from '../../utils/api';
