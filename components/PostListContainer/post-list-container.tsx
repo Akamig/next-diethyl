@@ -8,10 +8,8 @@ type Props = {
 };
 
 const Container = styled.div`
-  & > * {
-    border-left: .375rem solid black;
-    padding-left: .5rem;
-    margin: 0.375rem 0;
+  & > *:not(:last-child) {
+    margin-bottom: 0.375rem;
   }
 `;
 

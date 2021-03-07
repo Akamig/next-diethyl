@@ -12,6 +12,7 @@ const PostBox = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
+  border-left: 0.375rem solid black;
   :hover {
     background-color: ${(props) => props.theme.color.highlight};
     color: ${(props) => props.theme.color.white};
