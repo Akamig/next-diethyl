@@ -2,7 +2,6 @@ import { Post } from 'types/types';
 import Link from 'next/link';
 import styled from '@emotion/styled';
 import Tag from '../Tag/tag';
-import { create } from 'domain';
 
 type Props = {
   title: Post['title'];
@@ -25,6 +24,7 @@ const Header = styled.header`
 `;
 
 const Title = styled.h1`
+  font-family: 'InterDisplay';
   letter-spacing: -.05rem;
   font-size: 2.5rem;
   font-weight: 700;
