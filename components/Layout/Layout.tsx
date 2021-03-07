@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 import Navbar from '../navbar/navbar';
+import MainContents from '../MainContents/main-contents';
 import Footer from '../Footer/footer';
 
 type Props = {
@@ -23,13 +24,15 @@ const Main = styled.div`
   }
 `;
 
-const Layout = ({ children, title }: Props) => (
+const Layout = ({ children, title }: Props) => {
+  return (
   <Main>
     <title>{title}</title>
     <Navbar />
-    {children}
+        <MainContents>{children}</MainContents>
     <Footer />
   </Main>
 );
+};
 
 export default Layout;
