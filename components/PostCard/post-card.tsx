@@ -27,10 +27,10 @@ const PostBox = styled.div`
 const Date = styled.time``;
 
 const Title = styled.h1`
-  margin: 0 0 0.25rem;
+  margin-bottom: 0.25rem;
   font-size: 1.375rem;
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 `;
 
 const Meta = styled.div`
