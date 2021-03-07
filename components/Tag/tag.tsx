@@ -18,8 +18,8 @@ const Tagbox = styled.div`
 const Tagbutton = styled.div`
   background-color: ${(props) => props.color};
   color: ${(props) => props.theme.textColor};
-  line-height: 1rem;
-  padding: 0.125rem 0.375rem;
+  line-height: 1;
+  padding: 0.25rem 0.375rem;
   border: 1px solid transparent;
   border-radius: 0.75rem;
 `;
