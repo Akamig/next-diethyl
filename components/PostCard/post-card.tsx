@@ -13,7 +13,8 @@ const PostBox = styled.div`
   flex-direction: column;
   padding: 0.5rem;
   :hover {
-    background-color: ${(props) => props.theme.darkerColor};
+    background-color: ${(props) => props.theme.color.highlight};
+    color: ${(props) => props.theme.color.white};
   }
   font-weight: 600;
   font-feature-settings: 'ss01', 'cv01';
