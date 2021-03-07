@@ -15,12 +15,13 @@ type Props = {
   page: number;
   lastPage: number;
   slug: Category['slug'];
+  name: Category['name'];
 };
 
-export default function CategoryList({ posts, page, lastPage, slug }: Props) {
+export default function CategoryList({ posts, page, lastPage, slug, name, }: Props) {
   const router = useRouter();
   return (
-    <Layout title={`Category | ${slug}`}>
+    <Layout title={`Category | ${name}`}>
       <Container>
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
@@ -37,8 +38,7 @@ export default function CategoryList({ posts, page, lastPage, slug }: Props) {
   );
 }
 
-export async function getServerSideProps({ query })
-{
+export async function getServerSideProps({ query }) {
   const slug = query.slug;
   const page = parseInt(query.page) || 1;
   const data = await PagedPostBySlug(page, slug, 'category');
@@ -48,6 +48,7 @@ export async function getServerSideProps({ query })
       page,
       lastPage: data.lastPage,
       slug,
+      name: data.categories[0].name,
     },
   };
 }
