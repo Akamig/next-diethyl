@@ -54,9 +54,7 @@ const Category = styled.a`
   color: black;
 `;
 
-const PostHead = ({ title, tags, category, created_at }: Props) => {
-  const d = new Date(created_at);
-
+const PostHead = ({ title, tags, category, slug, created_at }: Props) => {
   return (
     <Header>
       <Section>
@@ -71,7 +69,7 @@ const PostHead = ({ title, tags, category, created_at }: Props) => {
         <span>Rev.2</span>
       </Section>
       <Title>
-        <Link as={`/posts/${title}`} href='/posts/[slug]' passHref>
+        <Link as={`/post/${slug}`} href='/post/[slug]' passHref>
           <a aria-label={title}>{title}</a>
         </Link>
       </Title>
