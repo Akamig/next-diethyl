@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 import Head from 'next/head';
 
+import Header from '../Header/header';
 import Navbar from '../navbar/navbar';
 import MainContents from '../MainContents/main-contents';
 import Footer from '../Footer/footer';
@@ -31,6 +32,7 @@ const Layout = ({ children, title }: Props) => {
       <Head>
         <title>{title}</title>
       </Head>
+        <Header />
         <Navbar />
         <MainContents>{children}</MainContents>
         <Footer />
