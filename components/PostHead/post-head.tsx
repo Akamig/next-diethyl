@@ -13,20 +13,22 @@ type Props = {
 
 const Header = styled.header`
   & > * {
-    border-left: 0.3125rem solid black;
-    padding-left: 0.5rem;
-    margin: 0.25rem 0;
+    border-left: 0.375rem solid black;
+    padding: 0 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   @media screen and (max-width: 900px) {
     font-size-adjust: 0.5;
-    line-height: 1;
+    line-height: 1;­
   }
 `;
 
 const Title = styled.h1`
-  letter-spacing: -0.05em;
-  font-size: 2.2rem;
+  letter-spacing: -.05rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
   font-feature-settings: 'zero', 'ss01', 'cv01';
 `;
 
@@ -40,13 +42,14 @@ const Section = styled.section`
   font-size: 1rem;
 
   & > * {
-    margin-right: 0.3125rem;
+    margin-right: 0.375rem;
   }
 `;
 
 const Category = styled.a`
+  line-height: 1.3;
   border: 0.25rem solid ${(props) => props.theme.darkerColor};
-  padding: 0 0.2rem;
+  padding: 0 0.25rem;
   background: ${(props) => props.color};
   color: black;
 `;
