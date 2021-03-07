@@ -5,8 +5,11 @@ const FooterWrap = styled.footer`
   @media screen and (min-width: 900px) {
     grid-area: 2 / 1 / 2 / 3;
   }
-  text-align: center;
-  color: ${(props) => props.theme.darkerColor};
+  font-weight: 500;
+  padding: 0.5rem;
+  margin-bottom: 10rem;
+  color: ${(props) => props.theme.color.text};
+  background-color: ${(props) => props.theme.color.sub};
 `;
 
 const Footer = () => {
