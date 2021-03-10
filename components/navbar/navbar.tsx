@@ -25,7 +25,7 @@ const Nav = styled.nav`
   display: flex;
   top: 0;
 
-  @media screen and (min-width: 992px) {
+  ${(props) => props.theme.mediaQuery.md} {
     bottom: unset;
 
     flex-direction: column;
@@ -36,7 +36,7 @@ const Nav = styled.nav`
 const Logo = styled.img`
   width: 32px;
   margin: 0 auto;
-  @media screen and (min-width: 992px) {
+  ${(props) => props.theme.mediaQuery.md} {
     text-align: center;
     width: 100%;
   }
