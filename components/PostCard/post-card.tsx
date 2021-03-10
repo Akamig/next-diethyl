@@ -9,8 +9,6 @@ type Props = {
 };
 
 const PostBox = styled.div`
-  display: flex;
-  flex-direction: column;
   padding: 0.5rem;
   border-left: 0.375rem solid black;
   :hover {
@@ -19,9 +17,7 @@ const PostBox = styled.div`
   }
   font-weight: 600;
   font-feature-settings: 'ss01', 'cv01';
-  align-items: space-between;
   line-height: 1.25;
-
 `;
 
 const Date = styled.time``;
