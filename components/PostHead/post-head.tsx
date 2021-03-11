@@ -16,20 +16,19 @@ const Header = styled.header`
     padding: 0 0.5rem;
     margin-bottom: 0.5rem;
   }
-
-  @media screen and (max-width: 900px) {
-    font-size-adjust: 0.5;
-    line-height: 1;­
-  }
 `;
 
 const Title = styled.h1`
   font-family: 'InterDisplay';
   letter-spacing: -.05rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1;
   font-feature-settings: 'zero', 'ss01', 'cv01';
+
+  ${(props) => props.theme.mediaQuery.md} {
+  font-size: 2.5rem;
+  }
 `;
 
 const Section = styled.section`
