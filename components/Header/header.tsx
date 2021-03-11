@@ -7,7 +7,7 @@ const Box = styled.header`
 const Text = styled.p`
   font-family: 'InterDisplay';
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.25rem;
   line-height: 1;
   letter-spacing: -0.02rem;
