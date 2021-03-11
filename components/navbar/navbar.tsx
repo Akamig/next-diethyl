@@ -19,7 +19,7 @@ const NavWrap = styled.aside`
 const Nav = styled.nav`
   position: sticky;
   display: flex;
-  top: 0;
+  top: 3.25rem;
 
   ${(props) => props.theme.mediaQuery.md} {
     flex-direction: column;
