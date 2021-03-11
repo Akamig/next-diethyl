@@ -3,9 +3,7 @@ import styled from '@emotion/styled';
 
 const FooterWrap = styled.footer`
   display: flex;
-  flex-basis: 100%;
   flex-direction: column;
-  font-weight: 500;
   padding: 0.5rem;
   margin-bottom: 10rem;
   color: ${(props) => props.theme.color.text};

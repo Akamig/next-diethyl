@@ -5,8 +5,6 @@ type Props = {
 
 const Main = styled.main`
   background-color: ${(props) => props.theme.color.sub};
-  min-height: 100vh;
-  flex: 1 0 0;
   padding: 1rem;
 `;
 

@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Box = styled.div`
-  background-color: #121212;
-  flex-basis: 100%;
-  margin: 0.5rem;
+const Box = styled.header`
   padding: 0.25rem 0.5rem;
 `;
 const Text = styled.p`
