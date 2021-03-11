@@ -13,29 +13,40 @@ type Props = {
 };
 
 const Main = styled.div`
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow-x: hidden;
   ${(props) => props.theme.mediaQuery.sm} {
-    padding: 0.5rem 0;
   }
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
-  margin: 0 auto;
-  max-width: 1100px;
+  display: grid;
 
   ${(props) => props.theme.mediaQuery.sm} {
-    & > * {
-      margin: 0.5rem;
-      margin-top: 0;
-    }
+    margin: 0.5rem;
+    grid-gap: 0.5rem;
   }
   ${(props) => props.theme.mediaQuery.md} {
+    grid-template: auto auto auto / min-content minmax(auto, 1000px);
+    grid-template-areas:
+      'a a'
+      'b c'
+      'd d';
+
+    header {
+      grid-area: a;
+    }
     aside {
-      margin-right: 0;
+      grid-area: b;
+    }
+    main {
+      grid-area: c;
+    }
+    footer {
+      grid-area: d;
+    }
   }
 `;
 
