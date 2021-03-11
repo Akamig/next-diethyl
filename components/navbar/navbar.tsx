@@ -7,8 +7,8 @@ import ThemeSelector from '../ThemeSelector/theme-selector';
 const NavWrap = styled.aside`
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-
   padding: 0.25rem;
   background-color: ${(props) => props.theme.color.sub};
 
