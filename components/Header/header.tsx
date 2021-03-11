@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Box = styled.header`
+  background-color: #f01;
+  color: #202;
   padding: 0.25rem 0.5rem;
 `;
 const Text = styled.p`
@@ -12,9 +14,7 @@ const Text = styled.p`
   line-height: 1;
   letter-spacing: -0.02rem;
   padding: 0.125rem;
-  margin-right: 0.25rem;
   vertical-align: middle;
-  color: #eec;
 `;
 
 const Header = ({}) => {
