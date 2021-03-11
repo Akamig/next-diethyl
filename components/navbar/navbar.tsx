@@ -13,11 +13,7 @@ const NavWrap = styled.aside`
   background-color: ${(props) => props.theme.color.sub};
 
   ${(props) => props.theme.mediaQuery.md} {
-    position: relative;
-    bottom: unset;
-
-    height: auto;
-    flex: 0 1 64px;
+    position: unset;
   }
 `;
 const Nav = styled.nav`
@@ -26,10 +22,7 @@ const Nav = styled.nav`
   top: 0;
 
   ${(props) => props.theme.mediaQuery.md} {
-    bottom: unset;
-
     flex-direction: column;
-    align-self: flex-start;
   }
 `;
 
