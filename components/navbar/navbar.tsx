@@ -43,7 +43,14 @@ const Item = styled.a`
   width: 100%;
   min-height: 2.5rem;
   background-color: ${(props) => props.theme.color.background};
-  margin-bottom: 0.125rem;
+  border-top: 0.125rem solid ${(props) => props.theme.color.black};
+  margin-left: 0.125rem;
+
+  ${(props) => props.theme.mediaQuery.md} {
+    border-top: unset;
+    margin-left: unset;
+    margin-bottom: 0.125rem;
+  }
 
   :hover {
     background-color: ${(props) => props.theme.color.highlight};
