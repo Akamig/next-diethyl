@@ -5,7 +5,7 @@ const FooterWrap = styled.footer`
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  margin-bottom: 10rem;
+  margin-bottom: 90vh;
   color: ${(props) => props.theme.color.text};
   background-color: ${(props) => props.theme.color.sub};
 `;
