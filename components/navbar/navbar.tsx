@@ -40,7 +40,7 @@ const Item = styled.a`
   font-weight: 500;
   padding: 0.125rem 0.25rem;
   letter-spacing: -0.032em;
-  width: 100%;
+  flex: 1 0 content;
   min-height: 2.5rem;
   background-color: ${(props) => props.theme.color.background};
   border-top: 0.125rem solid ${(props) => props.theme.color.black};
@@ -77,7 +77,7 @@ const Navbar = () => {
           </Item>
         </Link>
         <Link href='/post' passHref>
-          <Item>Post ⇧</Item>
+          <Item>Post</Item>
         </Link>
         <Link href='/category' passHref>
           <Item>Category</Item>
