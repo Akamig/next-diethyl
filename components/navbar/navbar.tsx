@@ -56,6 +56,10 @@ const Item = styled.a`
     background-color: ${(props) => props.theme.color.highlight};
     color: ${(props) => props.theme.color.sub};
   }
+
+  &.logo {
+    flex: 0 0 content;
+  }
 `;
 
 const Navbar = () => {
@@ -68,8 +72,8 @@ const Navbar = () => {
     <NavWrap>
       <Nav>
         <Link href='/' passHref>
-          <Item>
-            <Logo className='logo' src='/favicon.svg' />
+          <Item className='logo'>
+            <Logo src='/favicon.svg' />
           </Item>
         </Link>
         <Link href='/post' passHref>
