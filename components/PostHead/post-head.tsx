@@ -46,14 +46,14 @@ const Section = styled.section`
 `;
 
 const Category = styled.a`
-  line-height: 1.3;
+  line-height: 1.25;
   border: 0.25rem solid ${(props) => props.theme.darkerColor};
   padding: 0 0.25rem;
   background: ${(props) => props.color};
   color: black;
 `;
 
-const PostHead = ({ title, tags, category, slug, created_at }: Props) => {
+const PostHead = ({ title, category, slug, created_at }: Props) => {
   return (
     <Header>
       <Section>

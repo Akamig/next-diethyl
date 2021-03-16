@@ -31,13 +31,12 @@ export default function Post({ post }: Props) {
         <>
           <PostHead
             title={post.title}
-            tags={post.tags}
             category={post.category}
             created_at={post.created_at}
             slug={post.slug}
           />
           <PostBody content={post.content} />
-          <PostFooter />
+          <PostFooter tags={post.tags} />
         </>
       )}
     </Layout>
