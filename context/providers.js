@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from './ThemeContext';
-import { ThemeOptions, THEME_OPTIONS } from '../components/Theme/theme';
+import { ThemeOptions, THEME_OPTIONS } from '../components/theme';
 
 export default ({ children }) => {
   let initialTheme = THEME_OPTIONS.LIGHT;

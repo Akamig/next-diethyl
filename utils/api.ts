@@ -1,6 +1,3 @@
-import fs from 'fs';
-import { join } from 'path';
-
 const postQuery = `
   title
   created_at

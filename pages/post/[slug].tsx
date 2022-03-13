@@ -2,14 +2,14 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
-import PostHead from 'components/PostHead/post-head';
-import PostBody from 'components/PostBody/post-body';
+import PostHead from 'components/post-head';
+import PostBody from 'components/post-body';
+import PostFooter from 'components/footer';
 
-import Layout from 'components/Layout/Layout';
+import Layout from 'components/Layout';
 import { getPostBySlug, getAllPosts } from '../../utils/api';
 import markdownToHtml from '../../utils/markdownToHtml';
 import { Post as Posttype } from 'types/types';
-import PostFooter from 'components/PostFooter/post-footer';
 
 type Params = {
   params: {

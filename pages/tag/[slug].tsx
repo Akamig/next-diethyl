@@ -3,11 +3,11 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
-import Layout from 'components/Layout/Layout';
+import Layout from 'components/Layout';
 import { Tag, Post } from 'types/types';
 import { PagedPostBySlug } from 'utils/api';
-import PostListContainer from 'components/PostListContainer/post-list-container';
-import Pagination from 'components/Pagination/pagination';
+import PostListContainer from 'components/post-list-container';
+import Pagination from 'components/pagination';
 
 type Props = {
   posts: Post[];

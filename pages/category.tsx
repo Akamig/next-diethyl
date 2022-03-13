@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
-import Layout from 'components/Layout/Layout';
+import Layout from 'components/Layout';
 import { Container } from 'next/app';
 import { getAllCategories } from '../utils/api';
 import { Category } from 'types/types';
