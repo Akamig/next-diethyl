@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import Tag from '../Tag/tag';
+import Tag from './tag';
 import { Post } from 'types/types';
 
 type Props = {

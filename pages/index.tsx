@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-import PostListContainer from 'components/post-list-container';
+import PostListContainer from '../components/post-list-container';
 import { getAllPosts } from 'utils/api';
 
 export default function IndexPage({ posts }) {

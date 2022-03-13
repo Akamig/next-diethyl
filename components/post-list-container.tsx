@@ -1,5 +1,5 @@
 import React from 'react';
-import PostCard from '../PostCard/post-card';
+import PostCard from './post-card';
 import styled from '@emotion/styled';
 import { Post } from 'types/types';
 

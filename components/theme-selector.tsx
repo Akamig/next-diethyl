@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { ThemeMode, THEME_OPTIONS } from '../Theme/theme';
-import { useThemeValue } from '../../context/ThemeContext';
+import { ThemeMode, THEME_OPTIONS } from './theme';
+import { useThemeValue } from '../context/ThemeContext';
 
 interface Props {}
 

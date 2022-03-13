@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
-import ThemeSelector from '../ThemeSelector/theme-selector';
+import ThemeSelector from './theme-selector';
 
 const NavWrap = styled.aside`
   position: fixed;

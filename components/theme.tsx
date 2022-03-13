@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { ThemeProvider, Global } from '@emotion/react';
-import { Light, Dark, Black, Weird } from '../../styles/index';
+import { Light, Dark, Black, Weird } from '../styles/index';
 import { useThemeValue } from 'context/ThemeContext';
 
 export type ThemeMode = 'dark' | 'light' | 'black' | 'weird';

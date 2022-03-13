@@ -1,7 +1,7 @@
 import { Post } from 'types/types';
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import Tag from '../Tag/tag';
+import Tag from './tag';
 
 type Props = {
   title: Post['title'];
