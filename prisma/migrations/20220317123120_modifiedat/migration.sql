@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Article" ALTER COLUMN "modifiedAt" SET DEFAULT CURRENT_TIMESTAMP;

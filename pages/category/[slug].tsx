@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
 import Layout from 'components/Layout';
-import { Category, Post } from 'types/types';
-import { Container } from 'next/app';
 import { PagedPostBySlug } from 'utils/api';
 import PostListContainer from 'components/post-list-container';
 import Pagination from 'components/pagination';
@@ -22,7 +20,6 @@ export default function CategoryList({ posts, page, lastPage, slug, name, }: Pro
   const router = useRouter();
   return (
     <Layout title={`Category | ${name}`}>
-      <Container>
         {router.isFallback ? (
           <ErrorPage statusCode={404} />
         ) : (
@@ -33,7 +30,6 @@ export default function CategoryList({ posts, page, lastPage, slug, name, }: Pro
           page={page}
           lastPage={lastPage}
         />
-      </Container>
     </Layout>
   );
 }

@@ -19,7 +19,7 @@ const Header = styled.header`
 `;
 
 const Title = styled.h1`
-  font-family: 'InterDisplay';
+  font-family: ${(props) => props.theme.font.main};
   letter-spacing: -.05rem;
   font-size: 2rem;
   font-weight: 700;
@@ -36,7 +36,7 @@ const Section = styled.section`
   align-items: center;
   flex-wrap: wrap;
 
-  font-family: 'Iosevka';
+  font-family: ${(props) => props.theme.font.code};
   font-weight: 600;
   font-size: 1rem;
 

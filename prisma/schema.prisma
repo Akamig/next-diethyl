@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Article {
+  articleId  Int        @id @default(autoincrement())
+  createdAt  DateTime   @default(now())
+  modifiedAt DateTime   @default(now())
+  isDraft    Boolean    @default(true)
+  latestRev  Int
+  revisions  Revision[]
+}
+
+model Revision {
+  revId      Int        @id @default(autoincrement())
+  article    Article    @relation(fields: [revArticle], references: [articleId])
+  revArticle Int
+  version    String
+  createdAt  DateTime   @default(now())
+  parent     Int
+  title      String
+  slug       String
+  comment    String
+  isHidden   Boolean    @default(true)
+  revHash    String
+  series     Series?    @relation(references: [seriesId], fields: [seriesId])
+  categoryID Category   @relation(fields: [category], references: [categoryId])
+  Pageprops  Pageprops?
+  category   Int
+  seriesId   Int?
+  Tag        Tag[]
+}
+
+model Series {
+  seriesId   Int        @id
+  revisions  Revision[]
+  revId      Int
+  name       String
+  slug       String
+  postNumber Int
+}
+
+model Category {
+  categoryId Int        @id @default(autoincrement())
+  name       String     @unique
+  slug       String     @unique
+  parent     Int
+  color      String
+}
+
+model Tag {
+  tagId   Int        @id @default(autoincrement())
+  labelId Revision[] @relation(references: [revId])
+  name    String     @unique
+  slug    String     @unique
+  color   String
+}
+
+model Pageprops {
+  props_id   Int      @id @default(autoincrement())
+  revision   Revision @relation(references: [revId], fields: [revisionId])
+  props      Json
+  revisionId Int      @unique
+}

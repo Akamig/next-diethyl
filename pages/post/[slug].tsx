@@ -37,7 +37,6 @@ export default function Post({ post }: Props) {
             slug={post.slug}
           />
           <PostBody content={post.content} />
-          <PostFooter />
         </>
       )}
     </Layout>

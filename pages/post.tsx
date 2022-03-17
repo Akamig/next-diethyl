@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import { useRouter } from 'next/router';
-import ErrorPage from 'next/error';
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
 
-import Layout from 'components/Layout/Layout';
-import PostListContainer from 'components/PostListContainer/post-list-container';
-import Pagination from 'components/Pagination/pagination';
-import { Container } from 'next/app';
-import { PagedAllPosts } from '../utils/api';
-import { Post } from 'types/types';
+import Layout from "components/Layout";
+import PostListContainer from "components/post-list-container";
+import Pagination from "components/pagination";
+import { PagedAllPosts } from "../utils/api";
+import { Post } from "types/types";
 
 type Props = {
   posts: Post[];
@@ -19,15 +18,14 @@ type Props = {
 export default function PostList({ posts, page, lastPage }: Props) {
   const router = useRouter();
   return (
-    <Layout title='Posts'>
-      <Container>
-        {router.isFallback ? (
-          <ErrorPage statusCode={404} />
-        ) : (
-          <PostListContainer title={`Post`} posts={posts} />
-        )}
-        <Pagination basePath='/post' page={page} lastPage={lastPage} />
-      </Container>
+    <Layout title="Posts">
+      {router.isFallback ? (
+        
+        <ErrorPage statusCode={404} />
+      ) : (
+        <PostListContainer title={`Post`} posts={posts} />
+      )}
+      <Pagination basePath="/post" page={page} lastPage={lastPage} />
     </Layout>
   );
 }

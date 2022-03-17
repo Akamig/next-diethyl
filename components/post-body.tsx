@@ -12,6 +12,10 @@ const Article = styled.article`
     display: block;
     max-width: 90%;
   }
+  ul,ol {
+    padding-left: 20px;
+  }
+
 `;
 
 type Props = {

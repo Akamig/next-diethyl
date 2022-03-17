@@ -9,7 +9,14 @@ const theme = {
     background: '#0F0',
   },
   font: {
-    main: `'Comic Sans MS', 'Wadag', 'YJ INITIALPOSITIVE','Gulimche', 'Gulim', 'sans-serif'`,
+    main: `'Comic Neue', 'Wadag', 'YJ INITIALPOSITIVE','Gulimche', 'Gulim', 'Baekmuk Gulim', 'sans-serif'`,
+  },
+  fontSize: {
+    xs: 2.75,
+    sm: 2,
+    md: 2.125,
+    lg: 2.5,
+    xl: 4,
   },
 };
 
